@@ -2,13 +2,15 @@ version: 0.0
 os: linux
 files:
   - source: /
-    destination: /var/www/aimpugn.me/
+    destination: /var/www/aimpugn.me
 permissions:
-  - object: /
-    pattern: "**"
+  - object: /var/www/aimpugn.me
     owner: ubuntu
     group: ubuntu
-
+    mode: 755
+    type:
+      - directory
+      - file
 hooks:
   AfterInstall:
     - location: scripts/start.sh
